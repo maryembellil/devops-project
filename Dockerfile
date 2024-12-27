@@ -1,7 +1,7 @@
 FROM ubuntu:latest 
 
 RUN apt-get update && \
-    apt-get install -y sqlite3 nodejs 
+    apt-get install -y sqlite3 nodejs npm 
 
 WORKDIR /app
 
