@@ -1,16 +1,13 @@
-FROM ubuntu:latest 
-
-RUN apt-get update && \
-    apt-get install -y sqlite3 nodejs npm 
+FROM node:18-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --build-from-source
 
 COPY . .
 
 
 
-CMD ["npm", "start"]
+CMD [ "npm", "start"]
