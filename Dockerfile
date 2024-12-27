@@ -1,13 +1,11 @@
-FROM node:18-alpine
+FROM node:18-alpine-x64  
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --build-from-source 
 
-COPY . .
+COPY . . 
 
-RUN npm install -g pm2
-
-CMD ["pm2-runtime", "npm", "start"]
+CMD ["npm", "start"] 
