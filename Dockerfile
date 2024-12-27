@@ -1,15 +1,18 @@
-FROM node:18-alpine
+FROM ubuntu:latest
 
 WORKDIR /app
 
+# Install necessary packages
+RUN apt-get update && \
+    apt-get install -y sqlite3 nodejs npm build-essential 
+
 COPY package*.json ./
 
-# Install build dependencies for 32-bit Alpine
-RUN apk add --no-cache build-base gcc g++ make 
-
-# Install node modules 
-RUN npm install --build-from-source 
+# Install dependencies
+RUN npm install
 
 COPY . .
+
+
 
 CMD ["npm", "start"]
