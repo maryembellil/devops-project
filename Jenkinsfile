@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Docker Run') { 
             steps {
-                bat 'docker run -d -p 3000:3000 to-do-app:latest' 
+                bat 'docker run -d -p 5000:5000 to-do-app:latest' 
             }
         }
     }
